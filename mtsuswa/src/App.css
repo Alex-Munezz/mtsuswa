@@ -1,0 +1,195 @@
+body {
+  background-color: bisque;
+}
+.homeImg {
+  height: 90vh;
+  width: 100%;
+}
+/* Define keyframe animations */
+@keyframes cursorAnimation {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: #ffffff; }
+}
+
+@keyframes typingAnimation {
+  0% { width: 0; }
+  30% { width: 35ch; }
+  80% { width: 35ch; }
+}
+
+/* Welcome text styles */
+.WelcomeText {
+  font-size: 4vw;
+  font-weight: bolder;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  border-right: 0.2vw solid #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: cursorAnimation 1s infinite step-end, typingAnimation 10s infinite steps(20);
+
+  @media (max-width: 768px) {
+      font-size: 5vw;
+      margin-left: 1vh;
+  }
+}
+
+.aboutImg {
+  height: 40vh;
+  width: 60vh;
+  margin-left:  3vh;
+  border-radius:10vh;
+}
+.aboutbtn {
+  margin-bottom: 5vh;
+}
+@media (max-width:768px) {
+  .aboutImg {
+    width: 60vh;
+    height: 40vh;
+    margin-left:5vh;
+    padding: 10px;
+  }
+  .aboutP {
+    margin-left: 2vh;
+  }
+  .aboutp {
+    margin-left: 1vh;
+  }
+  .mission {
+    margin-left: -20vh;
+  }
+  .journeyImg {
+    margin-left: 1vh;
+  }
+  .journeyh {
+  margin-left: -25vh;
+  }
+  .journeyp {
+    margin-top: 5vh;
+  }
+  .missionImg {
+    margin-left:1vh;
+  }
+  .social-media {
+    margin-top: 3px;
+    margin-left: 3px;
+  }
+  .aboutp {
+    font-size: 3vh;
+    align-items: center;
+    margin-left: 3vh;
+  }
+  .services {
+    padding: 40px;
+    margin-left: -3vh;
+  }
+  .services-title{
+    margin-left: -10vh;
+  }
+  .fservices{
+    margin-right: -2vh;
+  }
+  .hikingImg {
+    margin-left: -30vh ;
+    height:20vh;
+    width:60vh
+  }
+  .maasaih1{
+    margin-left: 5vh;
+  }
+  .hbtn {
+    margin-left:-35vh
+  }
+  .hikingP {
+    margin-left:-50vh;
+  }
+  .maasaiP {
+    margin-left:-54vh;
+  }
+  .maasaiImg {
+    margin-left: -30vh;
+    width: 80vh;
+  }
+  .caveh1 {
+    margin-left:10vh;
+  }
+  .caveimg{
+    height: 20vh;
+    margin-left: -30vh;
+  }
+  .othersrvs {
+    padding:10vh;
+    margin-left:2vh;
+  }
+}
+.services-container {
+  margin-left: 8vh;
+}
+.fservices img {
+  width: 30vh;
+}
+.hikingImg {
+  border-radius: 10%;
+}
+.hike {
+ margin-left: 55vh;
+}
+.caveimg {
+  height: 45vh;
+  border-radius: 10vh;
+}
+.maasaiimg {
+  height: 45vh;
+}
+.campingimg {
+  border-radius: 10vh;
+  width: 90vh;
+  height: 60vh;
+}
+.h {
+  height: 45vh;
+}
+.cvimg {
+  height: 45vh;
+}
+.maasaiImg {
+  height: 60vh;
+  width: 80vh;
+  border-radius: 10vh;
+}
+#scrollToTopButton {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #010c53;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 1000;
+  opacity: 1.7;
+  transition: opacity 0.4s;
+}
+
+#scrollToTopButton:hover {
+  background-color: #fff;
+  color:#010c53;
+}
+.arrow-up {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 50px;
+  transform: translate(-50%, -55%);
+}
+*{
+  overflow-x: hidden;
+}
