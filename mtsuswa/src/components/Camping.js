@@ -9,7 +9,8 @@ import { useNavigate } from 'react-router-dom';
 export default function Camping(){
     const navigate = useNavigate()
     const bookHiking = () => {
-        window.open("https://api.whatsapp.com/send?phone=254700148521&text=Hello%20David....", '_blank');
+      window.scrollTo(0, 0);
+      navigate('/Booking');
     };
     const toHiking = () => {
         window.scrollTo(0, 0);

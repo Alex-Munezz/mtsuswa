@@ -125,6 +125,12 @@ body {
     padding:10vh;
     margin-left:2vh;
   }
+  .form{
+    margin-left: 20vh;
+  }
+  .formp{
+    margin-left: 25vh;
+  }
 }
 .services-container {
   margin-left: 8vh;
@@ -192,4 +198,102 @@ body {
 }
 *{
   overflow-x: hidden;
+}
+.form {
+  max-width: 600px;
+  width: 100%;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form h2 {
+  margin-top: 0;
+  color: #000;
+}
+
+.form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form form input, .container form textarea {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form form button {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form form button:hover {
+  background-color: #218838;
+}
+.bookh2{
+  font-size: 3em;
+  text-align: center;
+}
+.cta {
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin-left: 10vh;
+}
+
+.cta span {
+  padding-bottom: 7px;
+  letter-spacing: 4px;
+  font-size: 14px;
+  padding-right: 15px;
+  text-transform: uppercase;
+}
+
+.cta svg {
+  transform: translateX(-8px);
+  transition: all 0.3s ease;
+}
+
+.cta:hover svg {
+  transform: translateX(0);
+}
+
+.cta:active svg {
+  transform: scale(0.9);
+}
+
+.hover-underline-animation {
+  position: relative;
+  color: black;
+  padding-bottom: 20px;
+}
+
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000000;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.cta:hover .hover-underline-animation:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }

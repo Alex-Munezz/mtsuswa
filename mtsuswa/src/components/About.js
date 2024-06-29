@@ -3,10 +3,14 @@ import Camping6 from "../images/Camping6.webp";
 import Camping7 from "../images/Camping7.webp";
 import Footer from './Footer';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function About() {
+    const navigate = useNavigate()
+
     const redirectToWhatsApp = () => {
-        window.open("https://api.whatsapp.com/send?phone=254700148521&text=Hello%20David....", '_blank');
+        window.scrollTo(0, 0);
+        navigate('/Booking');
     };
 
     const [showScrollButton, setShowScrollButton] = useState(false);

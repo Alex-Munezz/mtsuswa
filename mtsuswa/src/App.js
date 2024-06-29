@@ -10,6 +10,7 @@ import About from './components/About';
 import Pricing from './components/Pricing';
 import Contact from './components/Contact';
 import Gallery from './components/Gallery';
+import Booking from './components/Booking';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path='/Pricing' element={<Pricing />} />
         <Route path='/Contact' element={<Contact />} />
         <Route path='/Gallery' element={<Gallery />} />
+        <Route path='/Booking' element={<Booking />} />
       </Routes>
     </div>
     </Router>
