@@ -1,10 +1,16 @@
 import React from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import { Helmet } from 'react-helmet';
 
 function Pricing() {
     return (
         <div>
+                                        <Helmet>
+      <title>Pricing | Mt Suswa</title>
+      <meta name="description" content="Learn more about Mt Suswa hikeNcamp, our mission, values, and the team behind our success." />
+      <meta name="keywords" content="About MT Suswa hikeNcamp, mission, values, Mt Suswa" />
+    </Helmet>   
             <Navbar />
             <div className="text-center py-10">
                 <h1 className="text-4xl font-bold">| Pricing</h1>

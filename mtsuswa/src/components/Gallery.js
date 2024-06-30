@@ -22,10 +22,16 @@ import gallery18 from '../images/gallery15.jpeg';
 import camping from '../images/Cave.webp';
 import camping2 from '../images/maasai.jpeg';
 import camping3 from '../images/Hiking.webp';
+import { Helmet } from 'react-helmet';
 
 function Gallery() {
     return (
         <div>
+                            <Helmet>
+      <title>Gallery | Mt Suswa</title>
+      <meta name="description" content="Learn more about Mt Suswa hikeNcamp, our mission, values, and the team behind our success." />
+      <meta name="keywords" content="About MT Suswa hikeNcamp, mission, values, Mt Suswa" />
+    </Helmet>
             <Navbar />
             
             <h2 className="mt-10 text-4xl text-center">Take a look at our recent photos :</h2>

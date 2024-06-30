@@ -28,12 +28,15 @@ function Footer () {
                 <li class="mb-4">
                     <a href="/Gallery" class=" hover:underline">Our Gallery</a>
                 </li>
+                <li class="mb-4">
+                    <a href="/Booking" class=" hover:underline">Booking</a>
+                </li>
             </ul>
         </div>
         <div>
             <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Help center</h2>
             <ul class="text-gray-500 dark:text-gray-400 font-medium">
-
+                <p>Mail to : inquiries@mountsuswahikencamp.com</p><br />
                 <li class="mb-4">
                     <a href="https://twitter.com/mt_suswa?t=VZYjmO-xsCxFH7Oos1FaJw&s=09" target="_blank" rel="noopener noreferrer" class="hover:underline">Twitter</a>
                 </li>

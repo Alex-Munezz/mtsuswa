@@ -4,6 +4,7 @@ import Camping7 from "../images/Camping7.webp";
 import Footer from './Footer';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 function About() {
     const navigate = useNavigate()
@@ -39,6 +40,11 @@ function About() {
 
     return (
         <div>
+                <Helmet>
+      <title>About Us | Mt Suswa</title>
+      <meta name="description" content="Learn more about Mt Suswa hikeNcamp, our mission, values, and the team behind our success." />
+      <meta name="keywords" content="About MT Suswa hikeNcamp, mission, values, Mt Suswa" />
+    </Helmet>
             <Navbar />
             <br /><br /><br />
             <h1 className='text-5xl flex items-center justify-center'>| About Us</h1>

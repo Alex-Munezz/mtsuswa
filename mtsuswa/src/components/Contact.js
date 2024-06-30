@@ -4,10 +4,16 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import Map from './Map';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 function ContactUs() {
     return (
         <div className="contact-container">
+          <Helmet>
+      <title>Contact Us | Mt Suswa</title>
+      <meta name="description" content="Get in touch with Mt Suswa hikeNcamp. We are here to help you with any inquiries or support you may need." />
+      <meta name="keywords" content="Contact Mt Suswa hikeNcamp, inquiries, support, help, Mt Suswa, Suswa" />
+    </Helmet>
             <Navbar />
             <h1 className="text-5xl text-center my-10">Contact Us</h1>
             <div className="location">

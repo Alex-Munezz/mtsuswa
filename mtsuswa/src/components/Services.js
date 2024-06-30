@@ -5,6 +5,7 @@ import Cave from '../images/Cave.webp';
 import Maasai from '../images/gallery3.jpeg';
 import Camping from '../images/Camping3.jpeg';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 export default function Services(){
     const navigate = useNavigate()
@@ -28,6 +29,11 @@ export default function Services(){
 
     return(
         <div>
+                 <Helmet>
+      <title>Services | Mt Suswa</title>
+      <meta name="description" content="Welcome to Mt Suswa hikeNcamp. We offer the best services and products in the hiking and camping industry. Learn more about what we can do for you." />
+      <meta name="keywords" content="Mt Suswa, hiking, caves, camping, maasai, maasai culture, suswa, baboon parliament, steam vents" />
+    </Helmet>
             <Navbar /><br /><br /><br />
             <h1 className="text-5xl flex items-center justify-center">| Discover our Services</h1>
             <br /><br />

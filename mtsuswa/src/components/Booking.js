@@ -1,8 +1,14 @@
 import NavBar from "./Navbar";
+import { Helmet } from 'react-helmet';
 
 export default function booking() {
     return (
         <div>
+                          <Helmet>
+      <title>Bookings | Mt Suswa</title>
+      <meta name="description" content="Learn more about Mt Suswa hikeNcamp, our mission, values, and the team behind our success." />
+      <meta name="keywords" content="About MT Suswa hikeNcamp, mission, values, Mt Suswa" />
+    </Helmet>
         <NavBar />
 <div className="form">
 <h2 className="bookh2">Book Your Services Now!</h2>
