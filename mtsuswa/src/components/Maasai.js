@@ -5,6 +5,7 @@ import Footer from './Footer';
 import Cave from '../images/gallery11.jpeg';
 import Camping from '../images/Camping1.jpeg';
 import { useNavigate } from 'react-router-dom';
+import Floating from './Floating';
 
 export default function Hiking(){
     const navigate = useNavigate()
@@ -48,8 +49,8 @@ export default function Hiking(){
 Book Now
 </button>
 </div><br /><br /><br />
-<h2 className='text-4xl flex justify-center'>Other Services :</h2>
-<div className="lg:grid grid-cols-3 xl:grid-cols-3 p-40 ml-24 othersrvs">
+<h2 className='text-4xl flex justify-center'>Other Services :</h2><br />
+<div className="lg:grid grid-cols-3 xl:grid-cols-3 ml-1 othersrvs">
 <div class="hover:translate-y-[-15px] transition-transform ease-in-out relative flex w-80 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
 <img src={HikingImg} alt='hiking' className='h' />
   <div class="p-6">
@@ -104,6 +105,7 @@ Book Now
   </div>
 </div>
 </div>
+<Floating />
 
 <br /><br /><br />
 <Footer />

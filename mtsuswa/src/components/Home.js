@@ -9,6 +9,7 @@ import Cave from '../images/Cave.webp';
 import Maasai from '../images/gallery3.jpeg';
 import Footer from './Footer';
 import { Helmet } from 'react-helmet';
+import Floating from './Floating';
 
  function Home(){
     const navigate = useNavigate();
@@ -21,13 +22,26 @@ import { Helmet } from 'react-helmet';
     <div className="home">
        <Helmet>
       <title>Home | Mt Suswa</title>
-      <meta name="description" content="Welcome to Mt Suswa hikeNcamp. We offer the best services and products in the hiking and camping industry. Learn more about what we can do for you." />
+      <meta name="description" content="Welcome to Mt Suswa hikeNcamp. Join us for unforgettable adventures. Explore scenic trails, camp under the stars, and connect with nature." />
       <meta name="keywords" content="Mt Suswa, hiking, caves, camping, maasai, maasai culture, suswa, baboon parliament, steam vents" />
+      <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "http://schema.org",
+            "@type": "Organization",
+            "name": "Mount Suswa HikeNCamp",
+            "url": "https://mountsuswahikencamp.com",
+            "sameAs": [
+              "https://web.facebook.com/profile.php?id=100083171139623",
+              "https://www.instagram.com/Mtsuswagetaway",
+              "https://twitter.com/mt_suswa?t=VZYjmO-xsCxFH7Oos1FaJw&s=09"
+            ]
+          })}
+        </script>
     </Helmet>
         <Navbar />
         <img src={HomeImg} alt="home" className='homeImg' />
         <div className="text">
-        <h1 className='WelcomeText'>Welcome to Mount Suswa hikeNcamp &#129095; </h1>
+        <h1 className='WelcomeText'>Welcome to Mount Suswa hikeNcamp</h1>
         </div>  <br /><br /><br />
         <h1 className="text-5xl flex items-center justify-center">| About Us</h1><br /><br /><br />  
         <br />
@@ -158,6 +172,7 @@ import { Helmet } from 'react-helmet';
 </div>
 
           </div>
+    <Floating />
   </div><br /><br /><br />
   <Footer />
 </div> 

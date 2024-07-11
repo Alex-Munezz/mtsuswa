@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { Helmet } from 'react-helmet';
+import Floating from './Floating';
 
 function Pricing() {
     return (
@@ -60,7 +61,8 @@ function Pricing() {
                             <li>Learn about Maasai marriages, lion killings, etc.</li>
                         </ul>
                     </ul>
-                </div>
+                </div>    <Floating />
+
             </div><br /><br /><br />
             <Footer />
         </div>

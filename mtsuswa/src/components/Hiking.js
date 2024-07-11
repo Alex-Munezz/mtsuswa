@@ -5,6 +5,7 @@ import Camping from '../images/Camping1.jpeg';
 import Cave from '../images/gallery11.jpeg';
 import Maasai from '../images/gallery1.jpeg';
 import { useNavigate } from 'react-router-dom';
+import Floating from './Floating';
 
 export default function Hiking(){
     const navigate = useNavigate()
@@ -30,11 +31,11 @@ export default function Hiking(){
         <div>
             <Navbar />
             <br /><br />
-      <h1 className="text-5xl flex justify-center mt-10">| Services  &#10148;  Hiking</h1>
+      <h1 className="text-4xl flex justify-center">| Services  &#10148;  Hiking</h1>
      <br /><br /><br />
      <div className='hike'>
      <img src={HikingImg} alt="hiking" className='hikingImg'/><br /><br />
-     <p className='text-2xl ml-5 hikingP'> Embark on a journey of exploration and adventure with our
+     <p className='text-2xl hikingP'> Embark on a journey of exploration and adventure with our
           premier hiking services.<br /> At Mt Suswa Camping, we're dedicated to providing you with unforgettable hiking <br />experiences
           that immerse you in the breathtaking beauty of nature.</p>
           <br /><br />
@@ -45,8 +46,8 @@ export default function Hiking(){
 Book Now
 </button>
 </div><br /><br /><br />
-<h2 className='text-4xl flex justify-center'>Other Services :</h2>
-<div className="lg:grid grid-cols-3 xl:grid-cols-3 p-40 ml-24 othersrvs">
+<h2 className='text-4xl flex justify-center'>Other Services :</h2><br />
+<div className="lg:grid grid-cols-3 xl:grid-cols-3 ml-1 othersrvs">
 <div class="hover:translate-y-[-15px] transition-transform ease-in-out relative flex w-80 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
 <img src={Camping} alt='camping' className='h-30' />
   <div class="p-6">
@@ -102,7 +103,8 @@ Book Now
     </button>
   </div>
 </div>
-</div>
+</div>    <Floating />
+
 <br /><br /><br />
 <Footer />
         </div>

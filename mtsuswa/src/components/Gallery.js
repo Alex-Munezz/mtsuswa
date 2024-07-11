@@ -23,6 +23,7 @@ import camping from '../images/Cave.webp';
 import camping2 from '../images/maasai.jpeg';
 import camping3 from '../images/Hiking.webp';
 import { Helmet } from 'react-helmet';
+import Floating from './Floating';
 
 function Gallery() {
     return (
@@ -57,7 +58,8 @@ function Gallery() {
                 <img src={camping} alt="Gallery" className="w-50 h-35 md:w-80 md:h-50 rounded-lg m-2" />
                 <img src={camping2} alt="Gallery" className="w-40 h-45 md:w-60 md:h-60 rounded-lg m-2" />
                 <img src={camping3} alt="Gallery" className="w-50 h-40 md:w-80 md:h-60 rounded-lg m-2" />
-            </div><br />
+            </div>    <Floating />
+<br />
             <Footer/>
         </div>
     )

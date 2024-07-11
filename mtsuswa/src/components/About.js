@@ -5,6 +5,7 @@ import Footer from './Footer';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import Floating from './Floating';
 
 function About() {
     const navigate = useNavigate()
@@ -108,7 +109,8 @@ function About() {
                 <button id="scrollToTopButton" onClick={scrollToTop} title="Go to top" className="fixed bottom-4 right-4 bg-gray-800 text-white px-4 py-2 rounded-full">
                     <span className="arrow-up">&#8593;</span>
                 </button>
-            )}
+            )}    <Floating />
+
             <br /> <br /> <br /> <br /> <br />
             <Footer />
         </div>

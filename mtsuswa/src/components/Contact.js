@@ -5,6 +5,7 @@ import Footer from './Footer';
 import Map from './Map';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import Floating from './Floating';
 
 function ContactUs() {
     return (
@@ -52,8 +53,9 @@ function ContactUs() {
                 </div>
                 <div>
                 <h3 className='ml-10 text-3xl'>For inquiries :</h3><br />
-                <p className='ml-10 text-2xl'>&#10148; inquiries@mountsuswahikencamp.com</p>
-            </div>
+                <p className='ml-10 text-2'>&#10148; inquiries@mountsuswahikencamp.com</p>
+            </div>    <Floating />
+
             <Footer />
         </div>
     );

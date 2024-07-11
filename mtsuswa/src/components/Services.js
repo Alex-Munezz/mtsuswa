@@ -6,6 +6,7 @@ import Maasai from '../images/gallery3.jpeg';
 import Camping from '../images/Camping3.jpeg';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import Floating from './Floating';
 
 export default function Services(){
     const navigate = useNavigate()
@@ -86,7 +87,8 @@ and adventure with our premier hiking services.
   </div>
 </div>
 
-</div>
+</div>    <Floating />
+
    <Footer />
         </div>
     )

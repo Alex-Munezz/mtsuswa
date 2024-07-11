@@ -5,6 +5,7 @@ import Maasai from '../images/gallery1.jpeg';
 import Hiking from '../images/Hiking.webp';
 import Footer from './Footer';
 import { useNavigate } from 'react-router-dom';
+import Floating from './Floating';
 
 export default function Camping(){
     const navigate = useNavigate()
@@ -29,7 +30,7 @@ export default function Camping(){
         <div>
             <Navbar />
             <br /><br />
-      <h1 className="text-5xl flex justify-center mt-10">| Services  &#10148;  Camping</h1>
+      <h1 className="text-3xl flex justify-center mt-10">| Services  &#10148;  Camping</h1>
      <br /><br /><br />
      <div className='camping'>
      <img src={camping} alt="camping" className='campingimg'/><br /><br />
@@ -45,8 +46,8 @@ export default function Camping(){
 Book Now
 </button>
 </div><br /><br /><br />
-<h2 className='text-4xl flex justify-center'>Other Services :</h2>
-<div className="lg:grid grid-cols-3 xl:grid-cols-3 p-40 ml-24 othersrvs">
+<h2 className='text-4xl flex justify-center'>Other Services :</h2><br />
+<div className="lg:grid grid-cols-3 xl:grid-cols-3 ml-1 othersrvs">
 <div class="hover:translate-y-[-15px] transition-transform ease-in-out relative flex w-80 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
 <img src={Hiking} alt='camping' className='h' />
   <div class="p-6">
@@ -101,7 +102,8 @@ Book Now
     </button>
   </div>
 </div>
-</div>
+</div>    <Floating />
+
 <br /><br /><br />
 <Footer />
         </div>
