@@ -17,11 +17,10 @@ export default function Navbar() {
   }, []);
 
   const links = [
-    "Home",
-    "Experiences",
-    "Packages",
-    "Gallery",
     "About",
+    "Gallery",
+    "Packages",
+    "Booking",  
     "Contact",
   ];
 
@@ -65,6 +64,13 @@ export default function Navbar() {
 
           {/* Desktop */}
           <div className="hidden lg:flex items-center gap-10">
+            <a
+                href={"/"}
+                className={`font-medium transition hover:text-green-600 ${
+                  isScrolled ? "text-slate-700" : "text-white"
+                }`}
+              >Home
+              </a>
             {links.map((link) => (
               <a
                 key={link}
@@ -78,7 +84,7 @@ export default function Navbar() {
             ))}
 
             <a
-              href="#booking"
+              href="/booking"
               className="bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-full font-semibold transition shadow-lg"
             >
               Book Adventure
@@ -130,6 +136,11 @@ export default function Navbar() {
               </div>
 
               <div className="flex flex-col gap-8">
+                            <a
+                href={"/"}
+                className="text-xl font-semibold text-slate-700 hover:text-green-700 transition"
+              >Home
+              </a>
                 {links.map((link) => (
                   <a
                     key={link}
