@@ -1,37 +1,27 @@
-import './App.css';
-import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './components/Home';
-import Services from './components/Services';
-import Hiking from './components/Hiking';
-import Camping from './components/Camping';
-import Cave from './components/Cave';
-import Maasai from './components/Maasai';
-import About from './components/About';
-import Pricing from './components/Pricing';
-import Contact from './components/Contact';
-import Gallery from './components/Gallery';
-import Booking from './components/Booking';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import About from "./pages/About";
+import Home from "./pages/Home";
+import Packages from "./pages/Packages";
+import Gallery from "./pages/Gallery";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import FloatingButtons from "./components/FloatingButtons";
+
 
 function App() {
   return (
-    <Router>
-    <div className="App">
+    <BrowserRouter>
+      <Navbar />
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/Services' element={<Services />} />
-        <Route path='/Services/Hiking' element={< Hiking/>} />
-        <Route path='/Services/Camping' element={< Camping/>} />
-        <Route path='/Services/Cave' element={< Cave/>} />
-        <Route path='/Services/Maasai' element={<Maasai />} />
-        <Route path='/About' element={<About />} />
-        <Route path='/Pricing' element={<Pricing />} />
-        <Route path='/Contact' element={<Contact />} />
-        <Route path='/Gallery' element={<Gallery />} />
-        <Route path='/Booking' element={<Booking />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/packages" element={<Packages />} />
+        <Route path="/gallery" element={<Gallery />} /> 
+        <Route path="/about" element={<About />} />
       </Routes>
-    </div>
-    </Router>
-      );
+      <Footer />
+      <FloatingButtons />
+    </BrowserRouter>
+  );
 }
 
 export default App;
