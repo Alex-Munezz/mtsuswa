@@ -10,6 +10,7 @@ import Contact from "./pages/Contact";
 import Booking from "./pages/Booking";
 import BookingConfirmed from "./pages/BookingConfirmed";
 import { HelmetProvider } from "react-helmet-async";
+import NotFound from "./pages/404";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/booking-confirmed" element={<BookingConfirmed />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
       <FloatingButtons />

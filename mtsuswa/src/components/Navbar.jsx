@@ -144,7 +144,7 @@ export default function Navbar() {
                 {links.map((link) => (
                   <a
                     key={link}
-                    href={`#${link.toLowerCase()}`}
+                    href={`/${link.toLowerCase()}`}
                     onClick={() => setMenuOpen(false)}
                     className="text-xl font-semibold text-slate-700 hover:text-green-700 transition"
                   >
@@ -153,7 +153,7 @@ export default function Navbar() {
                 ))}
 
                 <a
-                  href="#booking"
+                  href="/booking"
                   className="mt-6 bg-green-700 text-white text-center py-4 rounded-full font-semibold"
                 >
                   Book Adventure
