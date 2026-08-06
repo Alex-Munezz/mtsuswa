@@ -12,10 +12,10 @@ import {
 export default function Footer() {
   const exploreLinks = [
     { name: "Home", path: "/" },
-    { name: "Experiences", path: "/experiences" },
-    { name: "Packages", path: "/packages" },
-    { name: "Gallery", path: "/gallery" },
     { name: "About", path: "/about" },
+    { name: "Gallery", path: "/gallery" },
+    { name: "Packages", path: "/packages" },
+    { name: "Booking", path: "/booking" },  
     { name: "Contact", path: "/contact" },
   ];
 
@@ -67,14 +67,18 @@ export default function Footer() {
             {/* Socials */}
             <div className="flex gap-4 mt-6">
               <a
-                href="#"
+                href="https://www.facebook.com/mount.suswagetway.tours/"
+                target="_blank"
+                rel="noreferrer"
                 className="w-10 h-10 rounded-full bg-green-800 flex items-center justify-center hover:bg-green-700 transition"
               >
                 <FaFacebook />
               </a>
 
               <a
-                href="#"
+                href="https://www.instagram.com/mtsuswaconservancy/"
+                target="_blank"
+                rel="noreferrer"
                 className="w-10 h-10 rounded-full bg-green-800 flex items-center justify-center hover:bg-green-700 transition"
               >
                 <FaInstagram />
@@ -171,7 +175,7 @@ export default function Footer() {
 
 
             <a
-              href="/contact"
+              href="/booking"
               className="inline-block mt-8 bg-green-700 hover:bg-green-800 px-6 py-3 rounded-full font-semibold transition shadow-lg"
             >
               Book Adventure

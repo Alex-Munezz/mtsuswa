@@ -12,7 +12,7 @@ import img3 from "../images/gallery3.jpeg";
 import img4 from "../images/gallery11.jpeg";
 import img5 from "../images/Camping5.webp";
 import img6 from "../images/gallery6.jpeg";
-
+import { Helmet } from "react-helmet-async";
 
 export default function Home() {
 
@@ -103,6 +103,113 @@ const gallery = [
 
   return (
     <>
+    <Helmet>
+  <title>
+    Mount Suswa Hike & Camp | Hiking, Camping, Cave Exploration & Maasai Tours
+  </title>
+
+  <meta
+    name="description"
+    content="Experience hiking, camping, lava cave exploration and Maasai cultural tours at Mount Suswa, Kenya. Book unforgettable adventures today."
+  />
+
+  <meta
+    name="keywords"
+    content="Mount Suswa, Mount Suswa hiking, Mount Suswa camping, Kenya hiking, Kenya camping, lava caves, Maasai cultural tours, adventure tours Kenya"
+  />
+
+  <meta name="author" content="Mount Suswa Hike & Camp" />
+          <meta
+          property="og:title"
+          content="Mount Suswa Hike & Camp"
+        />
+
+        <meta
+          property="og:description"
+          content="Discover unforgettable hiking, camping, cave exploration and Maasai cultural adventures at Mount Suswa."
+        />
+
+        <meta
+          property="og:image"
+          content="https://mountsuswahikencamp.com/images/galleryfront.webp"
+        />
+
+        <meta
+          property="og:type"
+          content="website"
+        />
+
+        <meta
+          property="og:url"
+          content="https://mountsuswahikencamp.com"
+        />
+
+        {/* Twitter/X */}
+
+        <meta
+          name="twitter:card"
+          content="summary_large_image"
+        />
+
+        <meta
+          name="twitter:title"
+          content="Mount Suswa Hike & Camp"
+        />
+
+        <meta
+          name="twitter:description"
+          content="Experience hiking, camping and cave adventures at Mount Suswa."
+        />
+
+        <meta
+          name="twitter:image"
+          content="/images/galleryfront.webp"
+        />
+        <link
+          rel="canonical"
+          href="https://mountsuswahikencamp.com/"
+        />
+        <meta
+  name="theme-color"
+  content="#166534"
+/>
+<meta
+  name="robots"
+  content="index, follow"
+/>
+<script type="application/ld+json">
+  {JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+
+    "name": "Mount Suswa Hike & Camp",
+
+    "url": "https://mountsuswahikencamp.com",
+
+    "logo": "https://mountsuswahikencamp.com/logo.png",
+
+    "image":
+      "https://mountsuswahikencamp.com/images/galleryfront.webp",
+
+    "description":
+      "Experience guided hiking, camping, lava cave exploration and authentic Maasai cultural tours at Mount Suswa, Kenya.",
+
+    "telephone": "+254700148521",
+
+    "email": "bookings@mountsuswahikencamp.com",
+
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "KE"
+    },
+
+    "sameAs": [
+      "https://www.facebook.com/mount.suswagetway.tours/",
+      "https://www.instagram.com/mtsuswaconservancy/"
+    ]
+  })}
+</script>
+</Helmet>
       <Hero />
       <Experiences />
        <WhyChooseUs />
@@ -214,29 +321,29 @@ const gallery = [
 
               </div>
 
-              <button
-                className={`
-                mt-12
-                w-full
-                rounded-full
-                py-4
-                font-semibold
-                transition
+<a
+  href="/packages"
+  className={`
+    mt-12
+    w-full
+    rounded-full
+    py-4
+    font-semibold
+    transition
+    flex
+    items-center
+    justify-center
 
-                ${
-                  item.featured
-                    ? "bg-emerald-500 hover:bg-emerald-600 text-white"
-                    : "bg-stone-900 hover:bg-emerald-600 text-white"
-                }
-
-                `}
-              >
-
-                {item.button}
-
-                <FaArrowRight className="inline ml-3" />
-
-              </button>
+    ${
+      item.featured
+        ? "bg-emerald-500 hover:bg-emerald-600 text-white"
+        : "bg-stone-900 hover:bg-emerald-600 text-white"
+    }
+  `}
+>
+  {item.button}
+  <FaArrowRight className="ml-3" />
+</a>
 
             </motion.div>
 
@@ -308,7 +415,7 @@ const gallery = [
               <img
 
                 src={item.image}
-
+                loading="lazy"
                 alt={item.title}
 
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-[2000ms]"
@@ -363,7 +470,7 @@ const gallery = [
 
           <a
 
-            href="#packages"
+            href="/packages"
 
             className="
 

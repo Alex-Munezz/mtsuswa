@@ -1,14 +1,6 @@
 import { motion } from "framer-motion";
-import {
-  FaWhatsapp,
-  FaEnvelope,
-  FaPhoneAlt,
-  FaMountain,
-  FaUsers,
-  FaCalendarAlt,
-  FaCheckCircle,
-} from "react-icons/fa";
-
+import { FaWhatsapp, FaEnvelope, FaPhoneAlt, FaMountain, FaCheckCircle } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 import heroImage from "../images/galleryfront.webp";
 
 export default function Booking() {
@@ -23,6 +15,83 @@ export default function Booking() {
 
   return (
     <div className="bg-slate-50 min-h-screen">
+      <Helmet>
+
+  <title>
+    Book Your Mount Suswa Adventure | Hiking & Camping Reservations
+  </title>
+
+  <meta
+    name="description"
+    content="Book your Mount Suswa hiking, camping, cave exploration or Maasai cultural adventure online. Reserve your preferred dates today."
+  />
+
+  <meta
+    name="keywords"
+    content="Book Mount Suswa, Mount Suswa booking, Mount Suswa hiking reservation, Kenya camping booking, adventure booking Kenya"
+  />
+
+  <meta
+    name="author"
+    content="Mount Suswa Hike & Camp"
+  />
+
+  <meta
+    name="robots"
+    content="index, follow"
+  />
+
+  <meta
+    name="theme-color"
+    content="#166534"
+  />
+
+  <link
+    rel="canonical"
+    href="https://mountsuswahikencamp.com/booking"
+  />
+
+  <meta
+    property="og:title"
+    content="Book Your Mount Suswa Adventure"
+  />
+
+  <meta
+    property="og:description"
+    content="Reserve your hiking, camping and cave exploration experience at Mount Suswa."
+  />
+
+  <meta
+    property="og:url"
+    content="https://mountsuswahikencamp.com/booking"
+  />
+
+  <meta
+    property="og:type"
+    content="website"
+  />
+
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  />
+
+  <meta
+    name="twitter:title"
+    content="Book Your Mount Suswa Adventure"
+  />
+
+  <meta
+    name="twitter:description"
+    content="Secure your place on an unforgettable Mount Suswa adventure."
+  />
+
+  <meta
+    name="twitter:image"
+    content="https://mountsuswahikencamp.com/images/bookinghero.webp"
+  />
+
+</Helmet>
 
       {/* ================= HERO ================= */}
 
@@ -82,12 +151,30 @@ export default function Booking() {
               Reserve Your Trip
             </h2>
 
-            <form
-              id="bookingForm"
-              action="https://formspree.io/f/mnnaqayz"
-              method="POST"
-              className="space-y-8"
-            >
+           <form
+  id="bookingForm"
+  onSubmit={async (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const data = new FormData(form);
+
+    const response = await fetch("https://formspree.io/f/mnnaqayz", {
+      method: "POST",
+      body: data,
+      headers: {
+        Accept: "application/json",
+      },
+    });
+
+    if (response.ok) {
+      window.location.href = "/booking-confirmed";
+    } else {
+      alert("Something went wrong. Please try again.");
+    }
+  }}
+  className="space-y-8"
+>
 
               {/* Name & Email */}
 
@@ -189,7 +276,86 @@ export default function Booking() {
 
                 </div>
 
-              </div>              {/* Group Size */}
+              </div> 
+
+              {/* Optional Extras */}
+
+<div>
+
+  <label className="block font-semibold text-slate-700 mb-5">
+    Optional Extras
+  </label>
+
+  <p className="text-slate-500 mb-5">
+    Enhance your Mount Suswa experience with these optional services.
+  </p>
+
+  <div className="grid md:grid-cols-2 gap-4">
+
+    {[
+      {
+        title: "🚐 Transport from Nairobi",
+        description: "Round-trip transport to and from Mount Suswa.",
+      },
+      {
+        title: "⛺ Tent Rental",
+        description: "Quality camping tent and sleeping setup.",
+      },
+      {
+        title: "🍽️ Meals",
+        description: "Breakfast, lunch and dinner during your trip.",
+      },
+      {
+        title: "📸 Professional Photography",
+        description: "Capture your adventure with high-quality photos.",
+      },
+      {
+        title: "🔥 Campfire Experience",
+        description: "Evening campfire with storytelling and relaxation.",
+      },
+      {
+        title: "🚅 SGR Train Station Pickup",
+        description: "Pickup and drop-off from the train station on request.",
+      },
+    ].map((extra) => (
+
+      <label
+        key={extra.title}
+        className="border border-slate-200 rounded-2xl p-5 cursor-pointer hover:border-green-700 hover:bg-green-50 transition"
+      >
+
+        <div className="flex items-start gap-3">
+
+          <input
+            type="checkbox"
+            name="extras"
+            value={extra.title}
+            className="mt-1 w-5 h-5 accent-green-700"
+          />
+
+          <div>
+
+            <h4 className="font-bold text-slate-900">
+              {extra.title}
+            </h4>
+
+            <p className="text-sm text-slate-500 mt-1">
+              {extra.description}
+            </p>
+
+          </div>
+
+        </div>
+
+      </label>
+
+    ))}
+
+  </div>
+
+</div>             
+              
+              {/* Group Size */}
 
               <input
                 type="number"
@@ -239,7 +405,7 @@ export default function Booking() {
                     const activities = data
                       .getAll("activities")
                       .join(", ");
-
+                    const extras = data.getAll("extras").join(", ");
                     const message = `Hello Mount Suswa Team,
 
 I'd like to book an adventure.
@@ -256,6 +422,10 @@ ${data.get("phone")}
 🥾 Activities:
 ${activities}
 
+🎒 Optional Extras:
+${extras || "None"}
+
+
 📅 Check-in:
 ${data.get("checkIn")}
 
@@ -270,10 +440,14 @@ ${data.get("message")}
 
 Thank you.`;
 
-                    window.open(
-                      `https://wa.me/254700148521?text=${encodeURIComponent(message)}`,
-                      "_blank"
-                    );
+const whatsappUrl = `https://wa.me/254700148521?text=${encodeURIComponent(message)}`;
+
+window.open(whatsappUrl, "_blank");
+
+// Redirect to confirmation page after opening WhatsApp
+setTimeout(() => {
+  window.location.href = "/booking-confirmed";
+}, 1000);
 
                   }}
                   className="bg-[#25D366] hover:bg-[#1EBE5B] text-white py-4 rounded-full font-semibold transition shadow-lg flex items-center justify-center gap-3"
@@ -501,80 +675,201 @@ Thank you.`;
 
       </section>
 
-      {/* ================= TESTIMONIALS ================= */}
+     {/* ================= BOOKING SUMMARY ================= */}
 
-      <section className="py-24">
+<section className="py-24 bg-white">
 
-        <div className="max-w-7xl mx-auto px-6">
+  <div className="max-w-7xl mx-auto px-6">
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="text-center mb-16"
+    >
 
-            <p className="uppercase tracking-[0.35em] text-green-700 font-semibold">
-              Happy Adventurers
+      <p className="uppercase tracking-[0.35em] text-green-700 font-semibold">
+        Before You Book
+      </p>
+
+      <h2 className="text-4xl md:text-5xl font-black mt-4 text-slate-900">
+        Booking Summary
+      </h2>
+
+      <p className="mt-6 max-w-3xl mx-auto text-slate-600 leading-8">
+        Here's everything you need to know before confirming your
+        Mount Suswa adventure.
+      </p>
+
+    </motion.div>
+
+    <div className="grid lg:grid-cols-2 gap-8">
+
+      {/* Included */}
+
+      <motion.div
+        initial={{ opacity: 0, x: -40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        className="bg-green-50 rounded-[30px] p-8 shadow-lg"
+      >
+
+        <h3 className="text-2xl font-black text-green-800 mb-8">
+          ✅ What's Included
+        </h3>
+
+        <div className="space-y-5">
+
+          {[
+            "Professional local guide",
+            "Park entry assistance",
+            "Camping site access (where applicable)",
+            "Lava cave exploration",
+            "Maasai cultural experience",
+            "Photography opportunities",
+            "Safety briefing",
+            "Emergency support throughout the trip",
+          ].map((item) => (
+
+            <div
+              key={item}
+              className="flex gap-4 items-start"
+            >
+              <FaCheckCircle className="text-green-700 mt-1" />
+
+              <span className="text-slate-700">
+                {item}
+              </span>
+
+            </div>
+
+          ))}
+
+        </div>
+
+      </motion.div>
+
+      {/* Important Information */}
+
+      <motion.div
+        initial={{ opacity: 0, x: 40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        className="bg-white rounded-[30px] p-8 shadow-lg border border-slate-200"
+      >
+
+        <h3 className="text-2xl font-black text-slate-900 mb-8">
+          📌 Important Information
+        </h3>
+
+        <div className="space-y-6">
+
+          <div>
+            <h4 className="font-bold text-green-700 mb-2">
+              What To Bring
+            </h4>
+
+            <p className="text-slate-600 leading-7">
+              Comfortable hiking shoes, warm clothing, drinking water,
+              sunscreen, a hat, flashlight for cave exploration and
+              personal toiletries for overnight camping.
             </p>
+          </div>
 
-            <h2 className="text-4xl md:text-5xl font-black mt-4 text-slate-900">
-              What Our Guests Say
-            </h2>
+          <div>
+            <h4 className="font-bold text-green-700 mb-2">
+              Booking Confirmation
+            </h4>
 
-          </motion.div>
+            <p className="text-slate-600 leading-7">
+              Your reservation is confirmed after our team contacts
+              you and verifies availability for your selected dates.
+            </p>
+          </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div>
+            <h4 className="font-bold text-green-700 mb-2">
+              Payments
+            </h4>
 
-            {[
-              {
-                name: "Sarah W.",
-                review:
-                  "The hike was breathtaking and the guides were incredibly knowledgeable. Highly recommend!",
-              },
-              {
-                name: "James K.",
-                review:
-                  "Camping under the stars at Mount Suswa was unforgettable. We'll definitely be back.",
-              },
-              {
-                name: "Brian M.",
-                review:
-                  "The caves, the scenery and the hospitality exceeded every expectation we had.",
-              },
-            ].map((testimonial, index) => (
+            <p className="text-slate-600 leading-7">
+              Payment instructions will be shared after your booking
+              request has been reviewed and confirmed.
+            </p>
+          </div>
 
-              <motion.div
-                key={testimonial.name}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.15 }}
-                whileHover={{ y: -8 }}
-                className="bg-white rounded-3xl shadow-xl p-8"
-              >
+          <div>
+            <h4 className="font-bold text-green-700 mb-2">
+              Cancellation Policy
+            </h4>
 
-                <div className="text-yellow-500 text-2xl mb-4">
-                  ★★★★★
-                </div>
-
-                <p className="text-slate-600 leading-8 italic">
-                  "{testimonial.review}"
-                </p>
-
-                <h4 className="mt-8 text-lg font-bold text-slate-900">
-                  {testimonial.name}
-                </h4>
-
-              </motion.div>
-
-            ))}
-
+            <p className="text-slate-600 leading-7">
+              Please notify us as early as possible if your plans
+              change so we can assist with rescheduling where possible.
+            </p>
           </div>
 
         </div>
 
-      </section>
+      </motion.div>
+
+    </div>
+
+    {/* Bottom Tips */}
+
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="mt-12 bg-green-950 rounded-[30px] p-10 text-white text-center"
+    >
+
+      <h3 className="text-3xl font-black">
+        💡 Adventure Tips
+      </h3>
+
+      <div className="grid md:grid-cols-3 gap-8 mt-10">
+
+        <div>
+          <h4 className="font-bold text-green-300 mb-3">
+            Arrive Early
+          </h4>
+
+          <p className="text-green-100 leading-7">
+            Morning departures provide the best weather and
+            spectacular views of the crater.
+          </p>
+        </div>
+
+        <div>
+          <h4 className="font-bold text-green-300 mb-3">
+            Stay Hydrated
+          </h4>
+
+          <p className="text-green-100 leading-7">
+            Carry enough drinking water, especially for
+            hiking and cave exploration.
+          </p>
+        </div>
+
+        <div>
+          <h4 className="font-bold text-green-300 mb-3">
+            Dress Comfortably
+          </h4>
+
+          <p className="text-green-100 leading-7">
+            Wear comfortable hiking clothes and sturdy shoes
+            suitable for rocky terrain.
+          </p>
+        </div>
+
+      </div>
+
+    </motion.div>
+
+  </div>
+
+</section>
 
       {/* ================= CTA ================= */}
 

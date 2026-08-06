@@ -1,14 +1,6 @@
 import { motion } from "framer-motion";
-import {
-  FaMountain,
-  FaCampground,
-  FaFire,
-  FaUsers,
-  FaPaw,
-  FaLeaf,
-  FaArrowRight,
-} from "react-icons/fa";
-
+import { FaMountain, FaCampground, FaFire, FaUsers, FaPaw, FaLeaf, FaArrowRight,} from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 import galleryFront from "../images/galleryfront.webp";
 import hiking from "../images/Hiking.webp";
 import cave from "../images/Cave.webp";
@@ -63,6 +55,87 @@ export default function About() {
 
   return (
     <div className="bg-slate-50">
+      <Helmet>
+
+  <title>
+    About Mount Suswa Hike & Camp | Our Story & Passion for Adventure
+  </title>
+
+  <meta
+    name="description"
+    content="Learn about Mount Suswa Hike & Camp, our experienced local guides, and our commitment to providing safe, unforgettable hiking, camping, cave exploration and Maasai cultural experiences in Kenya."
+  />
+
+  <meta
+    name="keywords"
+    content="About Mount Suswa Hike & Camp, Mount Suswa guides, Kenya hiking tours, Mount Suswa camping, Maasai cultural tours, Mount Suswa adventure"
+  />
+
+  <meta
+    name="author"
+    content="Mount Suswa Hike & Camp"
+  />
+
+  <meta
+    name="robots"
+    content="index, follow"
+  />
+
+  <meta
+    name="theme-color"
+    content="#166534"
+  />
+
+  <link
+    rel="canonical"
+    href="https://mountsuswahikencamp.com/about"
+  />
+
+  {/* Open Graph */}
+
+  <meta
+    property="og:title"
+    content="About Mount Suswa Hike & Camp"
+  />
+
+  <meta
+    property="og:description"
+    content="Meet the team behind Mount Suswa Hike & Camp and discover our passion for creating unforgettable outdoor adventures."
+  />
+
+  <meta
+    property="og:url"
+    content="https://mountsuswahikencamp.com/about"
+  />
+
+  <meta
+    property="og:type"
+    content="website"
+  />
+
+  {/* Twitter */}
+
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  />
+
+  <meta
+    name="twitter:title"
+    content="About Mount Suswa Hike & Camp"
+  />
+
+  <meta
+    name="twitter:description"
+    content="Discover our story, experienced guides and our passion for adventure."
+  />
+
+  <meta
+    name="twitter:image"
+    content="https://mountsuswahikencamp.com/images/abouthero.webp"
+  />
+
+</Helmet>
 
       {/* Hero */}
       <section
@@ -228,7 +301,7 @@ export default function About() {
           </p>
 
           <a
-            href="/contact"
+            href="/booking"
             className="inline-flex items-center gap-3 bg-green-700 hover:bg-green-800 text-white px-8 py-4 rounded-full font-semibold transition"
           >
             Book Your Adventure
@@ -271,7 +344,7 @@ export default function About() {
               </p>
 
               <a
-                href="/contact"
+                href="/booking"
                 className="mt-8 inline-flex items-center justify-center gap-3 bg-green-700 hover:bg-green-800 px-8 py-4 rounded-full font-semibold transition w-fit"
               >
                 Plan Your Visit

@@ -1,19 +1,88 @@
 import { motion } from "framer-motion";
-import {
-  FaPhoneAlt,
-  FaEnvelope,
-  FaWhatsapp,
-  FaMapMarkerAlt,
-  FaUsers,
-  FaCalendarAlt,
-  FaMountain,
-} from "react-icons/fa";
-
+import { FaPhoneAlt, FaEnvelope, FaWhatsapp, FaMapMarkerAlt, FaUsers, FaCalendarAlt, FaMountain } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 import heroImage from "../images/galleryfront.webp";
 
 export default function Contact() {
   return (
     <div className="bg-slate-50">
+      <Helmet>
+
+  <title>
+    Contact Mount Suswa Hike & Camp | Bookings & Enquiries
+  </title>
+
+  <meta
+    name="description"
+    content="Contact Mount Suswa Hike & Camp for bookings, enquiries, custom adventure packages and travel information. We're here to help plan your next adventure."
+  />
+
+  <meta
+    name="keywords"
+    content="Contact Mount Suswa, Mount Suswa enquiries, Mount Suswa bookings, Kenya hiking contact, camping enquiries"
+  />
+
+  <meta
+    name="author"
+    content="Mount Suswa Hike & Camp"
+  />
+
+  <meta
+    name="robots"
+    content="index, follow"
+  />
+
+  <meta
+    name="theme-color"
+    content="#166534"
+  />
+
+  <link
+    rel="canonical"
+    href="https://mountsuswahikencamp.com/contact"
+  />
+
+  <meta
+    property="og:title"
+    content="Contact Mount Suswa Hike & Camp"
+  />
+
+  <meta
+    property="og:description"
+    content="Reach out to our team for bookings, enquiries and personalized Mount Suswa adventures."
+  />
+
+  <meta
+    property="og:url"
+    content="https://mountsuswahikencamp.com/contact"
+  />
+
+  <meta
+    property="og:type"
+    content="website"
+  />
+
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  />
+
+  <meta
+    name="twitter:title"
+    content="Contact Mount Suswa Hike & Camp"
+  />
+
+  <meta
+    name="twitter:description"
+    content="Get in touch with our team to plan your Mount Suswa adventure."
+  />
+
+  <meta
+    name="twitter:image"
+    content="https://mountsuswahikencamp.com/images/contacthero.webp"
+  />
+
+</Helmet>
 
       {/* ================= HERO ================= */}
 
@@ -186,10 +255,29 @@ export default function Contact() {
             </h2>
 <form
   id="bookingForm"
-  action="https://formspree.io/f/mnnaqayz"
-  method="POST"
-  className="space-y-6"
+  onSubmit={async (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const data = new FormData(form);
+
+    const response = await fetch("https://formspree.io/f/mnnaqayz", {
+      method: "POST",
+      body: data,
+      headers: {
+        Accept: "application/json",
+      },
+    });
+
+    if (response.ok) {
+      window.location.href = "/booking-confirmed";
+    } else {
+      alert("Something went wrong. Please try again.");
+    }
+  }}
+  className="space-y-8"
 >
+
   {/* Name & Email */}
   <div className="grid md:grid-cols-2 gap-6">
     <input
@@ -280,6 +368,83 @@ export default function Contact() {
     </div>
   </div>
 
+                {/* Optional Extras */}
+
+<div>
+
+  <label className="block font-semibold text-slate-700 mb-5">
+    Optional Extras
+  </label>
+
+  <p className="text-slate-500 mb-5">
+    Enhance your Mount Suswa experience with these optional services.
+  </p>
+
+  <div className="grid md:grid-cols-2 gap-4">
+
+    {[
+      {
+        title: "🚐 Transport from Nairobi",
+        description: "Round-trip transport to and from Mount Suswa.",
+      },
+      {
+        title: "⛺ Tent Rental",
+        description: "Quality camping tent and sleeping setup.",
+      },
+      {
+        title: "🍽️ Meals",
+        description: "Breakfast, lunch and dinner during your trip.",
+      },
+      {
+        title: "📸 Professional Photography",
+        description: "Capture your adventure with high-quality photos.",
+      },
+      {
+        title: "🔥 Campfire Experience",
+        description: "Evening campfire with storytelling and relaxation.",
+      },
+      {
+        title: "🚅 SGR Train Station Pickup",
+        description: "Pickup and drop-off from the train station on request.",
+      },
+    ].map((extra) => (
+
+      <label
+        key={extra.title}
+        className="border border-slate-200 rounded-2xl p-5 cursor-pointer hover:border-green-700 hover:bg-green-50 transition"
+      >
+
+        <div className="flex items-start gap-3">
+
+          <input
+            type="checkbox"
+            name="extras"
+            value={extra.title}
+            className="mt-1 w-5 h-5 accent-green-700"
+          />
+
+          <div>
+
+            <h4 className="font-bold text-slate-900">
+              {extra.title}
+            </h4>
+
+            <p className="text-sm text-slate-500 mt-1">
+              {extra.description}
+            </p>
+
+          </div>
+
+        </div>
+
+      </label>
+
+    ))}
+
+  </div>
+
+</div> 
+
   {/* Group Size */}
   <input
     type="number"
@@ -313,6 +478,7 @@ export default function Contact() {
         const data = new FormData(form);
 
         const activities = data.getAll("activities").join(", ");
+        const extras = data.getAll("extras").join(", ");      
 
         const message = `Hello Mount Suswa Team,
 
@@ -325,6 +491,9 @@ Phone: ${data.get("phone")}
 Activities:
 ${activities}
 
+🎒 Optional Extras:
+${extras || "None"}
+
 Check In Date: ${data.get("checkIn")}
 Check Out Date: ${data.get("checkOut")}
 Group Size: ${data.get("groupSize")}
@@ -334,10 +503,15 @@ ${data.get("message")}
 
 Thank you.`;
 
-        window.open(
-          `https://wa.me/254768453442?text=${encodeURIComponent(message)}`,
-          "_blank"
-        );
+const whatsappUrl = `https://wa.me/254700148521?text=${encodeURIComponent(message)}`;
+
+window.open(whatsappUrl, "_blank");
+
+// Redirect to confirmation page after opening WhatsApp
+setTimeout(() => {
+  window.location.href = "/booking-confirmed";
+}, 1000);
+
       }}
       className="bg-[#25D366] hover:bg-[#1EBE5B] text-white py-4 rounded-full font-semibold transition"
     >
@@ -483,7 +657,6 @@ Thank you.`;
                   allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
                   width="100%"
                   height="500"
-                  loading="lazy"
                   allowFullScreen
                   className="border-0"
                 ></iframe>

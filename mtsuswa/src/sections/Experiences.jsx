@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { FaArrowRight, FaMountain, FaCampground, FaFire,} from "react-icons/fa";
 import { GiCaveEntrance, GiTribalMask } from "react-icons/gi";
 import { MdOutlinePets } from "react-icons/md";
-
 import hike from "../images/gallery6.jpeg";
 import cave from "../images/gallery11.jpeg";
 import camping from "../images/Camping2.jpeg";
@@ -128,15 +127,38 @@ export default function Experiences() {
         campfires and endless skies.
 
       </p>
+      <div className="flex flex-wrap gap-6 mt-12">
 
-      <button className="mt-8 group inline-flex items-center gap-3 rounded-full bg-emerald-600 hover:bg-emerald-700 transition px-8 py-4 text-white font-semibold">
+            <a
+              href="/about"
+              className="
+              group
+              inline-flex
+              items-center
+              gap-3
+              rounded-full
+              bg-gradient-to-r
+              from-emerald-600
+              to-green-700
+              hover:from-green-700
+              hover:to-emerald-600
+              px-10
+              py-5
+              text-lg
+              font-semibold
+              text-white
+              shadow-[0_20px_60px_rgba(16,185,129,.35)]
+              transition-all
+              duration-300
+              "
+            >
+              Explore Experience
 
-        Explore Experience
+              <FaArrowRight className="group-hover:translate-x-1 transition" />
 
-        <FaArrowRight className="group-hover:translate-x-1 transition" />
+            </a>
 
-      </button>
-
+          </div>
     </div>
 
   </motion.div>
@@ -254,7 +276,7 @@ export default function Experiences() {
       <div className="flex flex-wrap gap-5 mt-10">
 
         <a
-          href="#packages"
+          href="/booking"
           className="
           group
           inline-flex
@@ -314,7 +336,7 @@ export default function Experiences() {
   </p>
 
   <a
-    href="#packages"
+    href="/packages"
     className="
     inline-flex
     items-center

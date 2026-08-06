@@ -17,6 +17,8 @@ import gallery13 from "../images/gallery13.jpeg";
 import gallery14 from "../images/gallery14.jpeg";
 import gallery15 from "../images/gallery15.jpeg";
 import gallery16 from "../images/gallery16.jpeg";
+import { Helmet } from "react-helmet-async";
+
 
 export default function Gallery() {
   const images = [
@@ -120,7 +122,88 @@ export default function Gallery() {
 
   return (
     <div className="bg-slate-50">
+   <Helmet>
 
+  <title>
+    Mount Suswa Gallery | Hiking, Camping & Adventure Photos
+  </title>
+
+  <meta
+    name="description"
+    content="Browse breathtaking photos of Mount Suswa hiking trails, lava caves, camping experiences, wildlife and Maasai cultural adventures."
+  />
+
+  <meta
+    name="keywords"
+    content="Mount Suswa gallery, Mount Suswa photos, Mount Suswa hiking images, Kenya hiking photography, camping photos"
+  />
+
+  <meta
+    name="author"
+    content="Mount Suswa Hike & Camp"
+  />
+
+  <meta
+    name="robots"
+    content="index, follow"
+  />
+
+  <meta
+    name="theme-color"
+    content="#166534"
+  />
+
+  <link
+    rel="canonical"
+    href="https://mountsuswahikencamp.com/gallery"
+  />
+
+  <meta
+    property="og:title"
+    content="Mount Suswa Gallery"
+  />
+
+  <meta
+    property="og:description"
+    content="Discover the beauty of Mount Suswa through stunning hiking, camping and cave exploration photography."
+  />
+
+  <meta
+    property="og:image"
+    content="https://mountsuswahikencamp.com/images/galleryfront.webp"
+  />
+
+  <meta
+    property="og:url"
+    content="https://mountsuswahikencamp.com/gallery"
+  />
+
+  <meta
+    property="og:type"
+    content="website"
+  />
+
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  />
+
+  <meta
+    name="twitter:title"
+    content="Mount Suswa Gallery"
+  />
+
+  <meta
+    name="twitter:description"
+    content="Explore beautiful images from Mount Suswa adventures."
+  />
+
+  <meta
+    name="twitter:image"
+    content="https://mountsuswahikencamp.com/images/galleryfront.webp"
+  />
+
+</Helmet>
       {/* HERO */}
       <section className="relative bg-green-950 py-28 overflow-hidden">
 
@@ -337,7 +420,7 @@ export default function Gallery() {
             <div className="mt-10 flex flex-col sm:flex-row justify-center gap-5">
 
               <a
-                href="/contact"
+                href="/booking"
                 className="
                   inline-flex
                   items-center

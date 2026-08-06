@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { FaCar, FaMountain, FaCampground, FaUsers, FaCheckCircle,} from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 export default function Packages() {
 const packages = [
@@ -57,7 +58,83 @@ const packages = [
 
   return (
     <section className="bg-gray-300 py-24">
+  <Helmet>
 
+  <title>
+    Mount Suswa Adventure Packages | Hiking, Camping & Tours
+  </title>
+
+  <meta
+    name="description"
+    content="Explore affordable Mount Suswa adventure packages including hiking, camping, lava cave exploration, Maasai cultural experiences and private group tours. Book your adventure today."
+  />
+
+  <meta
+    name="keywords"
+    content="Mount Suswa packages, Mount Suswa hiking packages, Mount Suswa camping, Kenya adventure tours, Mount Suswa cave tours, Maasai cultural tours"
+  />
+
+  <meta
+    name="author"
+    content="Mount Suswa Hike & Camp"
+  />
+
+  <meta
+    name="robots"
+    content="index, follow"
+  />
+
+  <meta
+    name="theme-color"
+    content="#166534"
+  />
+
+  <link
+    rel="canonical"
+    href="https://mountsuswahikencamp.com/packages"
+  />
+
+  <meta
+    property="og:title"
+    content="Mount Suswa Adventure Packages"
+  />
+
+  <meta
+    property="og:description"
+    content="Choose from guided hiking, camping, cave exploration and cultural adventure packages at Mount Suswa."
+  />
+
+  <meta
+    property="og:url"
+    content="https://mountsuswahikencamp.com/packages"
+  />
+
+  <meta
+    property="og:type"
+    content="website"
+  />
+
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  />
+
+  <meta
+    name="twitter:title"
+    content="Mount Suswa Adventure Packages"
+  />
+
+  <meta
+    name="twitter:description"
+    content="Find the perfect hiking, camping and adventure package for your Mount Suswa experience."
+  />
+
+  <meta
+    name="twitter:image"
+    content="https://mountsuswahikencamp.com/images/packageshero.webp"
+  />
+
+</Helmet>
       {/* Header */}
       <div className="max-w-7xl mx-auto px-6 text-center mb-16">
 
@@ -240,9 +317,7 @@ including supper, lunch and breakfast.
 
 
           <a
-            href="https://wa.me/254700148521"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/booking"
             className="
               inline-block
               mt-8

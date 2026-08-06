@@ -85,7 +85,7 @@ export default function Hero() {
           <div className="flex flex-wrap gap-6 mt-12">
 
             <a
-              href="#packages"
+              href="/booking"
               className="
               group
               inline-flex
